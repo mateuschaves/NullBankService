@@ -1,0 +1,17 @@
+{
+  "name": "NullBankService",
+  "version": "1.0.0",
+  "description": "Web service de pagamentos da NullBank",
+  "main": "server.js",
+  "repository": "https://github.com/mateuschaves/NullBankService",
+  "author": "Mateus Henrique e Felipe Matheus",
+  "license": "MIT",
+  "scripts": {
+    "start": " node server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.5.12"
+  }
+}
