@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const app = express();
 
+const routes = require("./routes");
+
 require("dotenv").config();
 
 const PORT = process.env.PORT;
@@ -16,6 +18,8 @@ mongoose.connect(
   }@cluster0-wlooi.mongodb.net/test?retryWrites=true&w=majority`,
   { useNewUrlParser: true }
 );
+
+app.use(routes);
 
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
