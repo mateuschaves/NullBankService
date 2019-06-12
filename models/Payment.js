@@ -1,10 +1,6 @@
 const mongoose = require("mongoose");
 
 const PaymentSchema = new mongoose.Schema({
-  user: {
-    type: String,
-    required: true
-  },
   price: {
     type: Number,
     required: true
@@ -18,6 +14,10 @@ const PaymentSchema = new mongoose.Schema({
     type: Number,
     default: 0,
     required: false
+  },
+  user: {
+    type: mongoose.Schema.ObjectId,
+    ref: "User"
   }
 });
 

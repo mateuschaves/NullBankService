@@ -1,18 +1,15 @@
-const Payment = require("../models/Payment");
 const User = require("../models/User");
 
 module.exports = {
   async store(req, res) {
+    console.log(req.body);
     try {
-      const payment = await Payment.create(req.body);
-      const user = await User.findById(req.body.user);
-      if (user.limit < req.body.price) return res.send("Sem saldo");
-      user.limit -= req.body.price;
-      await user.save();
-
-      if (payment)
+      const user = await User.create(req.body);
+      const users = await User.find();
+      console.log(users);
+      if (user)
         return res.status(201).json({
-          message: "Compra realizada com sucesso !",
+          message: "Usuário cadastrado com sucesso !",
           error: false
         });
       else
