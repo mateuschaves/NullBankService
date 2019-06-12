@@ -23,5 +23,12 @@ module.exports = {
         error: true
       });
     }
+  },
+
+  async auth(req, res) {
+    const { id, password } = req.body;
+    const user = await User.findById(id);
+    if (user.password != password) return res.send("Wrong password");
+    else return res.send("Sucess !");
   }
 };
